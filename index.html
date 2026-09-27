@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sách Công Nghệ Đỉnh Cao | Tên Thương Hiệu Của Bạn</title>
+    <!-- Tối ưu SEO cơ bản -->
+    <meta name="description" content="Khám phá bộ sưu tập sách lập trình và công nghệ giúp bạn bứt phá sự nghiệp.">
+    
+    <!-- MẪU GẮN TRACKING CODE (BẮT BUỘC CHO MÔN HỌC) -->
+    <!-- 1. Google Tag Manager / Google Analytics 4 (Đo lường traffic, tỷ lệ thoát, Looker Studio) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX'); // Thay mã GA4 của bạn vào đây
+    </script>
+
+    <!-- 2. Facebook Pixel Code (Đo lường từ quảng cáo FB, Retargeting) -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '123456789012345'); // Thay mã Pixel của bạn
+      fbq('track', 'PageView');
+    </script>
+
+    <!-- Tailwind CSS (Để làm giao diện nhanh) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <!-- HERO SECTION (Tạo ấn tượng và Kêu gọi hành động ngay lập tức) -->
+    <header class="bg-blue-600 text-white text-center py-20 px-4">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Bứt Phá Kỹ Năng Lập Trình Trong 30 Ngày</h1>
+        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Tuyển tập sách và tài liệu chuyên sâu dành riêng cho sinh viên IT. Đăng ký ngay để nhận ưu đãi 30%.</p>
+        
+        <!-- Nút Call-to-Action (Cần gắn sự kiện để đo lường tỷ lệ Click) -->
+        <a href="#dang-ky" onclick="gtag('event', 'click_cta_hero', {'event_category': 'Button', 'event_label': 'Đăng Ký Ngay'});" 
+           class="bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition duration-300">
+            NHẬN ƯU ĐÃI NGAY
+        </a>
+    </header>
+
+    <!-- SECTION LỢI ÍCH (Thuyết phục khách hàng) -->
+    <section class="py-16 px-4 max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-10 text-gray-800">Tại Sao Bạn Cần Cuốn Sách Này?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-xl font-bold text-blue-600 mb-2">Thực Chiến Cao</h3>
+                <p class="text-gray-600">Kiến thức bám sát dự án thực tế, không lý thuyết suông.</p>
+            </div>
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-xl font-bold text-blue-600 mb-2">Nắm Trọn Framework</h3>
+                <p class="text-gray-600">Làm chủ từ ReactJS đến Spring Boot một cách hệ thống.</p>
+            </div>
+            <div class="p-6 bg-white shadow-lg rounded-lg">
+                <h3 class="text-xl font-bold text-blue-600 mb-2">Cộng Đồng Hỗ Trợ</h3>
+                <p class="text-gray-600">Tham gia group kín giải đáp thắc mắc 24/7.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION FORM CHUYỂN ĐỔI (Thu thập Data - Mục tiêu quan trọng nhất để làm báo cáo) -->
+    <section id="dang-ky" class="bg-gray-200 py-16 px-4">
+        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-xl">
+            <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Điền Thông Tin Nhận Ưu Đãi</h2>
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Họ và Tên</label>
+                    <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Số Điện Thoại</label>
+                    <input type="tel" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                </div>
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
+                    GỬI ĐĂNG KÝ
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-400 text-center py-6">
+        <p>&copy; 2026 Tên Thương Hiệu Của Bạn. Dùng cho mục đích Assignment môn Digital Marketing.</p>
+    </footer>
+
+    <!-- Script xử lý sự kiện nộp form để đo lường chuyển đổi -->
+    <script>
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Kích hoạt Event bắn về Google Analytics và Facebook Pixel
+            if(typeof gtag !== 'undefined') {
+                gtag('event', 'generate_lead', {
+                    'event_category': 'Form',
+                    'event_label': 'Form Đăng Ký Chân Trang'
+                });
+            }
+            if(typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+
+            alert('Đăng ký thành công! Dữ liệu chuyển đổi đã được ghi nhận.');
+            // Code xử lý gửi data về backend (nếu có) nằm ở đây
+        }
+    </script>
+</body>
+</html>
