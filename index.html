@@ -1,115 +1,736 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sách Công Nghệ Đỉnh Cao | Tên Thương Hiệu Của Bạn</title>
-    <!-- Tối ưu SEO cơ bản -->
-    <meta name="description" content="Khám phá bộ sưu tập sách lập trình và công nghệ giúp bạn bứt phá sự nghiệp.">
-    
-    <!-- MẪU GẮN TRACKING CODE (BẮT BUỘC CHO MÔN HỌC) -->
-    <!-- 1. Google Tag Manager / Google Analytics 4 (Đo lường traffic, tỷ lệ thoát, Looker Studio) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX'); // Thay mã GA4 của bạn vào đây
-    </script>
+    <title>TechKnowledge Library - Kho Tri Thức Công Nghệ & Digital Marketing</title>
+    <meta name="description"
+        content="Tải miễn phí hàng trăm tài liệu chuyên sâu về AI, Digital Marketing, SEO, Automation và Lập trình.">
 
-    <!-- 2. Facebook Pixel Code (Đo lường từ quảng cáo FB, Retargeting) -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '123456789012345'); // Thay mã Pixel của bạn
-      fbq('track', 'PageView');
-    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <!-- Tailwind CSS (Để làm giao diện nhanh) -->
+    <!-- Animate On Scroll (AOS) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-50 font-sans">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#0a192f',
+                            800: '#112240',
+                            700: '#233554',
+                        },
+                        techblue: {
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    <!-- HERO SECTION (Tạo ấn tượng và Kêu gọi hành động ngay lập tức) -->
-    <header class="bg-blue-600 text-white text-center py-20 px-4">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Bứt Phá Kỹ Năng Lập Trình Trong 30 Ngày</h1>
-        <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Tuyển tập sách và tài liệu chuyên sâu dành riêng cho sinh viên IT. Đăng ký ngay để nhận ưu đãi 30%.</p>
-        
-        <!-- Nút Call-to-Action (Cần gắn sự kiện để đo lường tỷ lệ Click) -->
-        <a href="#dang-ky" onclick="gtag('event', 'click_cta_hero', {'event_category': 'Button', 'event_label': 'Đăng Ký Ngay'});" 
-           class="bg-yellow-400 text-blue-900 font-bold py-3 px-8 rounded-full hover:bg-yellow-300 transition duration-300">
-            NHẬN ƯU ĐÃI NGAY
-        </a>
+    <style>
+        /* Tùy chỉnh hiệu ứng Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #60a5fa, #c084fc);
+        }
+
+        /* Custom Checkbox */
+        .custom-checkbox:checked+div {
+            background-color: #2563eb;
+            border-color: #2563eb;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <!-- Header -->
+    <header
+        class="fixed w-full top-0 z-50 bg-navy-900/95 backdrop-blur-sm border-b border-navy-700 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer">
+                <div
+                    class="w-8 h-8 rounded bg-gradient-to-br from-techblue-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl">
+                    T</div>
+                <span class="text-white font-bold text-xl tracking-tight">TechKnowledge</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#loi-ich" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Lợi
+                    Ích</a>
+                <a href="#tai-lieu" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">Tài
+                    Liệu Nổi Bật</a>
+                <a href="#faq" class="text-gray-300 hover:text-white transition-colors text-sm font-medium">FAQ</a>
+            </nav>
+            <a href="#dang-ky"
+                class="hidden md:inline-flex bg-techblue-600 hover:bg-techblue-500 text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-techblue-500/30 transform hover:-translate-y-0.5">
+                Đăng Ký Ngay
+            </a>
+        </div>
     </header>
 
-    <!-- SECTION LỢI ÍCH (Thuyết phục khách hàng) -->
-    <section class="py-16 px-4 max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-10 text-gray-800">Tại Sao Bạn Cần Cuốn Sách Này?</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-6 bg-white shadow-lg rounded-lg">
-                <h3 class="text-xl font-bold text-blue-600 mb-2">Thực Chiến Cao</h3>
-                <p class="text-gray-600">Kiến thức bám sát dự án thực tế, không lý thuyết suông.</p>
-            </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg">
-                <h3 class="text-xl font-bold text-blue-600 mb-2">Nắm Trọn Framework</h3>
-                <p class="text-gray-600">Làm chủ từ ReactJS đến Spring Boot một cách hệ thống.</p>
-            </div>
-            <div class="p-6 bg-white shadow-lg rounded-lg">
-                <h3 class="text-xl font-bold text-blue-600 mb-2">Cộng Đồng Hỗ Trợ</h3>
-                <p class="text-gray-600">Tham gia group kín giải đáp thắc mắc 24/7.</p>
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-navy-900 text-white">
+        <!-- Background Gradient Decor -->
+        <div
+            class="absolute top-0 right-0 -translate-y-12 translate-x-1/3 w-[800px] h-[800px] bg-techblue-600/20 rounded-full blur-[120px] pointer-events-none">
+        </div>
+        <div
+            class="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[600px] h-[600px] bg-purple-600/20 rounded-full blur-[100px] pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div
+                        class="inline-block px-4 py-1.5 rounded-full bg-navy-800 border border-navy-700 text-techblue-400 text-sm font-semibold mb-6">
+                        🔥 Cập nhật xu hướng 2026
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+                        Kho Tri Thức Công Nghệ & Digital Marketing Cho <span class="text-gradient">Kỷ Nguyên AI</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-300 mb-8 max-w-xl leading-relaxed">
+                        Nâng tầm chuyên môn với thư viện tài liệu độc quyền về SEO, Data, Social Media và Lập trình. Ứng
+                        dụng công nghệ để bứt phá doanh thu.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#dang-ky"
+                            class="inline-flex justify-center items-center bg-white text-navy-900 px-8 py-4 rounded-full text-base font-bold hover:bg-gray-100 transition-all shadow-xl hover:shadow-white/20 transform hover:-translate-y-1">
+                            Nhận Tài Liệu Miễn Phí
+                        </a>
+                        <a href="#tai-lieu"
+                            class="inline-flex justify-center items-center bg-navy-800 border border-navy-700 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-navy-700 transition-all">
+                            Xem Danh Mục
+                        </a>
+                    </div>
+
+                    <!-- Quick Social Proof -->
+                    <div class="mt-10 flex items-center gap-4 border-t border-navy-700 pt-6">
+                        <div class="flex -space-x-3">
+                            <img class="w-10 h-10 rounded-full border-2 border-navy-900 object-cover"
+                                src="https://i.pravatar.cc/100?img=1" alt="User" loading="lazy">
+                            <img class="w-10 h-10 rounded-full border-2 border-navy-900 object-cover"
+                                src="https://i.pravatar.cc/100?img=33" alt="User" loading="lazy">
+                            <img class="w-10 h-10 rounded-full border-2 border-navy-900 object-cover"
+                                src="https://i.pravatar.cc/100?img=12" alt="User" loading="lazy">
+                            <div
+                                class="w-10 h-10 rounded-full border-2 border-navy-900 bg-navy-700 flex items-center justify-center text-xs font-bold">
+                                +5k</div>
+                        </div>
+                        <p class="text-sm text-gray-400">Đã tải tài liệu trong tháng này</p>
+                    </div>
+                </div>
+
+                <!-- 3D Mockup Graphic -->
+                <div class="relative lg:ml-auto" data-aos="fade-left" data-aos-duration="1200">
+                    <div
+                        class="relative w-full max-w-lg mx-auto aspect-square bg-gradient-to-tr from-navy-800 to-navy-700 rounded-3xl border border-navy-600 shadow-2xl flex items-center justify-center overflow-hidden group">
+                        <!-- Giả lập hình ảnh sách 3D -->
+                        <div
+                            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center opacity-40 mix-blend-overlay transition-transform duration-700 group-hover:scale-105">
+                        </div>
+                        <div
+                            class="relative z-10 flex flex-col gap-4 transform rotate-[-15deg] group-hover:rotate-[-10deg] transition-all duration-500">
+                            <div
+                                class="w-48 h-64 bg-white rounded-lg shadow-2xl border-l-8 border-techblue-600 p-4 flex flex-col justify-between translate-x-12 -translate-y-8">
+                                <div>
+                                    <div class="w-8 h-1 bg-techblue-600 mb-2"></div>
+                                    <h3 class="text-navy-900 font-bold leading-tight">Mastering AI in Marketing</h3>
+                                </div>
+                                <div class="text-[10px] text-gray-500 font-medium">Vol 1. 2026 Edition</div>
+                            </div>
+                            <div
+                                class="w-48 h-64 bg-navy-900 rounded-lg shadow-2xl border-l-8 border-purple-500 p-4 flex flex-col justify-between -translate-x-4">
+                                <div>
+                                    <div class="w-8 h-1 bg-purple-500 mb-2"></div>
+                                    <h3 class="text-white font-bold leading-tight">Data-Driven SEO Strategy</h3>
+                                </div>
+                                <div class="text-[10px] text-gray-400 font-medium">TechKnowledge Exclusives</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION FORM CHUYỂN ĐỔI (Thu thập Data - Mục tiêu quan trọng nhất để làm báo cáo) -->
-    <section id="dang-ky" class="bg-gray-200 py-16 px-4">
-        <div class="max-w-md mx-auto bg-white p-8 rounded-lg shadow-xl">
-            <h2 class="text-2xl font-bold text-center mb-6 text-gray-800">Điền Thông Tin Nhận Ưu Đãi</h2>
-            <form onsubmit="handleFormSubmit(event)">
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">Họ và Tên</label>
-                    <input type="text" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <div class="mb-6">
-                    <label class="block text-gray-700 text-sm font-bold mb-2">Số Điện Thoại</label>
-                    <input type="tel" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition duration-300">
-                    GỬI ĐĂNG KÝ
-                </button>
-            </form>
+    <!-- Logo Partners (Social Proof) -->
+    <section class="py-10 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm text-gray-500 font-semibold mb-6 uppercase tracking-wider">Được tin dùng bởi các chuyên
+                gia từ</p>
+            <div class="flex flex-wrap justify-center gap-10 md:gap-20 opacity-50 grayscale">
+                <!-- Sử dụng text thay cho logo thật để demo -->
+                <span class="text-2xl font-bold font-serif">TechCorp</span>
+                <span class="text-2xl font-bold font-sans">GlobalMedia</span>
+                <span class="text-2xl font-black italic">NextGen</span>
+                <span class="text-2xl font-bold tracking-widest">DATAHUB</span>
+            </div>
         </div>
     </section>
 
-    <footer class="bg-gray-800 text-gray-400 text-center py-6">
-        <p>&copy; 2026 Tên Thương Hiệu Của Bạn. Dùng cho mục đích Assignment môn Digital Marketing.</p>
+    <!-- Benefits Section -->
+    <section id="loi-ich" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">Tại Sao Chọn TechKnowledge?</h2>
+                <p class="text-lg text-gray-600">Thư viện được biên soạn bởi các chuyên gia thực chiến, tập trung vào
+                    giá trị chuyển đổi và ứng dụng ngay vào công việc.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-techblue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Đón Đầu Xu Hướng AI</h3>
+                    <p class="text-gray-600 leading-relaxed">Tiếp cận các báo cáo, tài liệu mới nhất về việc ứng dụng
+                        Trí tuệ nhân tạo (AI) vào tự động hóa Marketing và quy trình làm việc.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Tối Ưu Chuyển Đổi (CRO)</h3>
+                    <p class="text-gray-600 leading-relaxed">Cung cấp bộ công cụ đo lường, case study phân tích hành vi
+                        người dùng bằng Data giúp tăng tỷ lệ chốt sale trên đa nền tảng.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy-900 mb-3">Thực Chiến & Kỹ Thuật</h3>
+                    <p class="text-gray-600 leading-relaxed">Không chỉ lý thuyết. Tài liệu hướng dẫn chi tiết cách thiết
+                        lập Tracking, code Web cơ bản và vận hành CRM chuyên nghiệp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Ebooks Section -->
+    <section id="tai-lieu" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-in">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-4xl font-bold text-navy-900 mb-4">Tài Liệu Nổi Bật Tuần Này</h2>
+                    <p class="text-gray-600 text-lg">Hơn 10,000+ marketer và developer đã áp dụng thành công.</p>
+                </div>
+                <a href="#dang-ky"
+                    class="hidden md:inline-flex text-techblue-600 font-semibold hover:text-techblue-800 transition-colors">
+                    Đăng ký để xem tất cả &rarr;
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Book Card 1 -->
+                <article
+                    class="group rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col"
+                    data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="h-48 bg-gradient-to-br from-navy-900 to-navy-700 relative overflow-hidden flex justify-center items-end">
+                        <!-- Book Graphic -->
+                        <div
+                            class="w-32 h-40 bg-white rounded-t-md shadow-lg border-x-4 border-t-4 border-techblue-600 p-3 transform translate-y-4 group-hover:translate-y-2 transition-transform">
+                            <div class="text-[8px] uppercase tracking-wider text-gray-500 font-bold mb-1">Ebook</div>
+                            <div class="font-black text-navy-900 leading-none text-lg">AI & Content Marketing</div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">AI</span>
+                            <span class="px-2.5 py-1 bg-gray-200 text-gray-700 text-xs font-bold rounded">Content</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Cẩm Nang AI Content 2026</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">100+ prompt và quy trình xây dựng hệ thống nội dung
+                            tự động đa nền tảng.</p>
+                        <a href="#dang-ky"
+                            class="text-techblue-600 font-semibold text-sm group-hover:text-techblue-800 flex items-center gap-1">
+                            Nhận tài liệu miễn phí <svg
+                                class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Book Card 2 -->
+                <article
+                    class="group rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div
+                        class="h-48 bg-gradient-to-br from-purple-900 to-indigo-900 relative overflow-hidden flex justify-center items-end">
+                        <div
+                            class="w-32 h-40 bg-navy-900 rounded-t-md shadow-lg border-x-4 border-t-4 border-purple-400 p-3 transform translate-y-4 group-hover:translate-y-2 transition-transform">
+                            <div class="text-[8px] uppercase tracking-wider text-purple-300 font-bold mb-1">Guide</div>
+                            <div class="font-black text-white leading-none text-lg">Data & Analytics Master</div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-3">
+                            <span
+                                class="px-2.5 py-1 bg-purple-100 text-purple-700 text-xs font-bold rounded">Data</span>
+                            <span
+                                class="px-2.5 py-1 bg-gray-200 text-gray-700 text-xs font-bold rounded">Analytics</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Đo Lường & Tối Ưu UX</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">Hướng dẫn setup tracking, đọc chỉ số Looker Studio
+                            và tối ưu tỷ lệ chuyển đổi website.</p>
+                        <a href="#dang-ky"
+                            class="text-techblue-600 font-semibold text-sm group-hover:text-techblue-800 flex items-center gap-1">
+                            Nhận tài liệu miễn phí <svg
+                                class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Book Card 3 -->
+                <article
+                    class="group rounded-2xl overflow-hidden bg-gray-50 border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div
+                        class="h-48 bg-gradient-to-br from-emerald-900 to-teal-900 relative overflow-hidden flex justify-center items-end">
+                        <div
+                            class="w-32 h-40 bg-white rounded-t-md shadow-lg border-x-4 border-t-4 border-emerald-500 p-3 transform translate-y-4 group-hover:translate-y-2 transition-transform">
+                            <div class="text-[8px] uppercase tracking-wider text-gray-500 font-bold mb-1">Workbook</div>
+                            <div class="font-black text-navy-900 leading-none text-lg">Coding for Marketers</div>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex gap-2 mb-3">
+                            <span
+                                class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded">Code</span>
+                            <span class="px-2.5 py-1 bg-gray-200 text-gray-700 text-xs font-bold rounded">Tech</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-navy-900 mb-2">Lập Trình Cho Marketer</h3>
+                        <p class="text-gray-600 text-sm mb-6 flex-1">Cơ bản về HTML, CSS, Regex và kỹ thuật crawl dữ
+                            liệu (Scraping) không cần nền tảng IT.</p>
+                        <a href="#dang-ky"
+                            class="text-techblue-600 font-semibold text-sm group-hover:text-techblue-800 flex items-center gap-1">
+                            Nhận tài liệu miễn phí <svg
+                                class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-8 text-center md:hidden">
+                <a href="#dang-ky"
+                    class="inline-block text-techblue-600 font-semibold border border-techblue-600 px-6 py-2 rounded-full">
+                    Xem tất cả tài liệu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-20 bg-navy-900 text-white relative overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==')]">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16" data-aos="fade-up">Cộng đồng nói gì về chúng
+                tôi?</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-navy-800 p-8 rounded-2xl border border-navy-700" data-aos="fade-right">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img class="w-14 h-14 rounded-full object-cover" src="https://i.pravatar.cc/150?img=32"
+                            alt="Reviewer">
+                        <div>
+                            <h4 class="font-bold text-lg">Nguyễn Huy</h4>
+                            <p class="text-sm text-gray-400">Digital Marketing Lead</p>
+                        </div>
+                        <div class="ml-auto text-yellow-400 flex">
+                            ★★★★★
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Kiến thức cực kỳ thực chiến. Nhờ cuốn 'Đo Lường & Tối Ưu UX', team
+                        mình đã cải thiện được tốc độ tải trang web và tăng tỷ lệ chuyển đổi form lên 35% chỉ trong 1
+                        tháng."</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-navy-800 p-8 rounded-2xl border border-navy-700" data-aos="fade-left">
+                    <div class="flex items-center gap-4 mb-6">
+                        <img class="w-14 h-14 rounded-full object-cover" src="https://i.pravatar.cc/150?img=47"
+                            alt="Reviewer">
+                        <div>
+                            <h4 class="font-bold text-lg">Trần Khanh</h4>
+                            <p class="text-sm text-gray-400">Software Engineering Student</p>
+                        </div>
+                        <div class="ml-auto text-yellow-400 flex">
+                            ★★★★★
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Một nguồn tài liệu tuyệt vời để dân IT hiểu hơn về tư duy
+                        Marketing. Rất thích cách tài liệu trình bày kiến trúc phân tích dữ liệu một cách logic và rành
+                        mạch."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Section (Form) -->
+    <section id="dang-ky" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col md:flex-row"
+                data-aos="zoom-in" data-aos-duration="800">
+
+                <!-- Form Info/Visual Side -->
+                <div
+                    class="bg-gradient-to-br from-techblue-600 to-navy-900 md:w-5/12 p-10 text-white flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-4">Gia nhập cộng đồng tinh hoa</h3>
+                        <p class="text-techblue-100 mb-8">Điền thông tin để mở khóa quyền truy cập không giới hạn vào
+                            kho tài liệu trị giá hơn $500.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-techblue-300" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>100+ Ebook & Template</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-techblue-300" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Tài liệu update hàng tuần</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <svg class="w-5 h-5 text-techblue-300" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Hoàn toàn miễn phí</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mt-12 opacity-50">
+                        <svg class="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 0H0V100H100V0Z" fill="url(#paint0_linear)" />
+                            <defs>
+                                <linearGradient id="paint0_linear" x1="0" y1="0" x2="100" y2="100"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="white" stop-opacity="0.2" />
+                                    <stop offset="1" stop-color="white" stop-opacity="0" />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Form Inputs Side -->
+                <div class="md:w-7/12 p-10 relative">
+                    <!-- Form Container -->
+                    <div id="form-container">
+                        <h3 class="text-2xl font-bold text-navy-900 mb-6">Đăng Ký Nhận Tài Liệu</h3>
+                        <form id="lead-form" class="space-y-5" onsubmit="handleFormSubmit(event)">
+                            <div>
+                                <label for="fullname" class="block text-sm font-medium text-gray-700 mb-1">Họ và Tên
+                                    <span class="text-red-500">*</span></label>
+                                <input type="text" id="fullname" name="fullname" required
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-techblue-500 focus:border-techblue-500 outline-none transition-all"
+                                    placeholder="Vd: Nguyễn Quang Huy">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email <span
+                                            class="text-red-500">*</span></label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-techblue-500 focus:border-techblue-500 outline-none transition-all"
+                                        placeholder="email@example.com">
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Số điện
+                                        thoại <span class="text-red-500">*</span></label>
+                                    <input type="tel" id="phone" name="phone" required
+                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-techblue-500 focus:border-techblue-500 outline-none transition-all"
+                                        placeholder="09xx xxx xxx">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Lĩnh vực quan
+                                    tâm <span class="text-red-500">*</span></label>
+                                <select id="interest" name="interest" required
+                                    class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-techblue-500 focus:border-techblue-500 outline-none transition-all bg-white appearance-none">
+                                    <option value="" disabled selected>Chọn chủ đề bạn muốn học...</option>
+                                    <option value="digital_marketing">Digital Marketing Tổng Hợp</option>
+                                    <option value="ai_automation">AI & Automation</option>
+                                    <option value="seo_data">SEO & Phân tích Dữ liệu</option>
+                                    <option value="programming">Lập trình Web & Software</option>
+                                </select>
+                            </div>
+
+                            <div class="flex items-start gap-3 mt-6">
+                                <div class="relative flex items-center h-5">
+                                    <input id="consent" name="consent" type="checkbox" required
+                                        class="custom-checkbox opacity-0 absolute h-5 w-5 cursor-pointer z-10">
+                                    <div
+                                        class="bg-white border-2 border-gray-300 rounded w-5 h-5 flex flex-shrink-0 justify-center items-center mr-2 focus-within:border-techblue-500 transition-colors">
+                                        <svg class="fill-current hidden w-3 h-3 text-white pointer-events-none"
+                                            version="1.1" viewBox="0 0 17 12" xmlns="http://www.w3.org/2000/svg">
+                                            <g fill="none" fill-rule="evenodd">
+                                                <g transform="translate(-9 -11)" fill="#fff" fill-rule="nonzero">
+                                                    <path
+                                                        d="m25.576 11.414c0.56558 0.55188 0.56558 1.4439 0 1.9961l-9.404 9.176c-0.28213 0.27529-0.65247 0.41385-1.0228 0.41385-0.37034 0-0.74068-0.13855-1.0228-0.41385l-4.7019-4.588c-0.56584-0.55188-0.56584-1.4442 0-1.9961 0.56558-0.55214 1.4798-0.55214 2.0456 0l3.679 3.5899 8.3812-8.1779c0.56558-0.55214 1.4798-0.55214 2.0456 0z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <label for="consent" class="text-sm text-gray-500 cursor-pointer select-none">
+                                    Tôi đồng ý nhận tài liệu qua email và xác nhận đã đọc <a href="#"
+                                        class="text-techblue-600 hover:underline">Chính sách bảo mật</a> của
+                                    TechKnowledge Library.
+                                </label>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full bg-navy-900 hover:bg-navy-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 mt-4">
+                                Nhận Tài Liệu Ngay
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="success-message"
+                        class="hidden h-full flex flex-col items-center justify-center text-center py-10 animate-fade-in">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy-900 mb-2">Đăng Ký Thành Công!</h3>
+                        <p class="text-gray-600 mb-6">Cảm ơn bạn. Đường link tải kho tài liệu đã được gửi đến email của
+                            bạn. Vui lòng kiểm tra cả hộp thư Hộp thư đến và Spam.</p>
+                        <button onclick="resetForm()" class="text-techblue-600 font-semibold hover:underline">Quay lại
+                            trang chủ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white border-t border-gray-100">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-navy-900 text-center mb-12" data-aos="fade-up">Câu Hỏi Thường Gặp</h2>
+
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full text-left px-6 py-4 font-bold text-navy-900 bg-gray-50 flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(1)">
+                        Tài liệu này có hoàn toàn miễn phí không?
+                        <svg id="icon-1" class="w-5 h-5 transform transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="content-1" class="hidden px-6 py-4 text-gray-600 border-t border-gray-200">
+                        Vâng, hoàn toàn miễn phí. TechKnowledge Library là dự án cộng đồng nhằm chia sẻ kiến thức chất
+                        lượng cao đến sinh viên và người đi làm trong lĩnh vực Công nghệ & Marketing.
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full text-left px-6 py-4 font-bold text-navy-900 bg-gray-50 flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(2)">
+                        Thông tin của tôi có được bảo mật an toàn?
+                        <svg id="icon-2" class="w-5 h-5 transform transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="content-2" class="hidden px-6 py-4 text-gray-600 border-t border-gray-200">
+                        Chúng tôi cam kết bảo mật 100% dữ liệu của bạn theo tiêu chuẩn quốc tế. Thông tin chỉ được sử
+                        dụng để gửi tài liệu và các bản tin cập nhật kiến thức, không bao giờ được chia sẻ cho bên thứ
+                        ba.
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full text-left px-6 py-4 font-bold text-navy-900 bg-gray-50 flex justify-between items-center focus:outline-none"
+                        onclick="toggleFaq(3)">
+                        Làm sao để nhận sách sau khi đăng ký?
+                        <svg id="icon-3" class="w-5 h-5 transform transition-transform" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <div id="content-3" class="hidden px-6 py-4 text-gray-600 border-t border-gray-200">
+                        Ngay sau khi bạn nhấn nút đăng ký, hệ thống tự động sẽ gửi một email chứa link tải Google Drive
+                        an toàn đến địa chỉ email bạn đã cung cấp (thường mất 1-3 phút).
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-navy-900 pt-16 pb-8 border-t border-navy-800 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div
+                            class="w-6 h-6 rounded bg-techblue-500 flex items-center justify-center text-white font-bold text-xs">
+                            T</div>
+                        <span class="text-white font-bold text-lg">TechKnowledge Library</span>
+                    </div>
+                    <p class="text-sm mb-6 max-w-sm">Kho tàng tri thức mở giúp bạn làm chủ công nghệ, làm chủ sự nghiệp
+                        trong kỷ nguyên số.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-white transition-colors"><svg class="w-5 h-5" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                            </svg></a>
+                        <a href="#" class="hover:text-white transition-colors"><svg class="w-5 h-5" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg></a>
+                    </div>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-4">Chính sách</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">Điều khoản sử dụng</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Chính sách bảo mật</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Quyền sở hữu trí tuệ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-4">Liên hệ</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li>Email: support@techknowledge.vn</li>
+                        <li>Hotline: 09xx xxx xxx</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-navy-800 pt-8 text-center text-sm">
+                <p>&copy; 2026 TechKnowledge Library. Dùng cho mục đích giáo dục & Assignment.</p>
+            </div>
+        </div>
     </footer>
 
-    <!-- Script xử lý sự kiện nộp form để đo lường chuyển đổi -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Khởi tạo hiệu ứng cuộn AOS
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+
+        // Checkbox tick logic for SVG display
+        const checkbox = document.getElementById('consent');
+        const checkIcon = checkbox.nextElementSibling.querySelector('svg');
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                checkIcon.classList.remove('hidden');
+            } else {
+                checkIcon.classList.add('hidden');
+            }
+        });
+
+        // Xử lý nộp Form
         function handleFormSubmit(event) {
             event.preventDefault();
-            
-            // Kích hoạt Event bắn về Google Analytics và Facebook Pixel
-            if(typeof gtag !== 'undefined') {
-                gtag('event', 'generate_lead', {
-                    'event_category': 'Form',
-                    'event_label': 'Form Đăng Ký Chân Trang'
-                });
-            }
-            if(typeof fbq !== 'undefined') {
-                fbq('track', 'Lead');
-            }
+            // Lấy dữ liệu (Mô phỏng)
+            const fullname = document.getElementById('fullname').value;
 
-            alert('Đăng ký thành công! Dữ liệu chuyển đổi đã được ghi nhận.');
-            // Code xử lý gửi data về backend (nếu có) nằm ở đây
+            // Ẩn form, hiện thông báo thành công
+            document.getElementById('form-container').classList.add('hidden');
+            document.getElementById('success-message').classList.remove('hidden');
+
+            // Code bắn sự kiện GTM, Facebook Pixel hoặc Call API backend sẽ nằm ở đây
+            console.log("Đã thu thập data khách hàng:", fullname);
+        }
+
+        // Đặt lại Form
+        function resetForm() {
+            document.getElementById('lead-form').reset();
+            checkIcon.classList.add('hidden');
+            document.getElementById('success-message').classList.add('hidden');
+            document.getElementById('form-container').classList.remove('hidden');
+        }
+
+        // Chức năng Accordion cho FAQ
+        function toggleFaq(id) {
+            const content = document.getElementById(`content-${id}`);
+            const icon = document.getElementById(`icon-${id}`);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
         }
     </script>
 </body>
+
 </html>
